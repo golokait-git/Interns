@@ -11,7 +11,6 @@
 	<groupId>com.brajsundar</groupId>
 	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>Brajsundar Admin Backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

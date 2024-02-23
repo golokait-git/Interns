@@ -96,7 +96,7 @@ public class WorkshopServiceImpl implements WorkshopService {
                     String newFileName = "thumbnail_1.png";
                     String newS3Key = folderPath + newFileName;
 
-                    // Upload the new thumbnail to S3
+                    // Upload the new  to S3
                     PutObjectRequest request = new PutObjectRequest(bucketName, newS3Key, newThumbnail.getInputStream(),
                             metadata);
                     amazonS3.putObject(request);
