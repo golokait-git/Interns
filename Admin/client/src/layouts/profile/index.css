@@ -1,0 +1,86 @@
+/* ProfilePage.css */
+
+/* Styles for profile-container */
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* Styles for profile-title */
+.profile-title {
+  color: #1890ff;
+  font-size: 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Styles for profile-card */
+.profile-card {
+  background: linear-gradient(135deg, #ffffff, #f0f4f7);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Styles for label */
+.label {
+  display: block;
+  font-weight: bold;
+  color: #1890ff;
+  margin-bottom: 12px;
+}
+.inputDiv {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.inputDiv2 {
+  display: flex;
+  gap: 0px;
+  margin-bottom: 10px;
+}
+.inputDiv2 Input {
+  margin-left: 20px;
+}
+.FormInputd {
+  width: 200px;
+  border: 1px solid black;
+  margin-left: 35px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 550px) {
+  .inputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .inputDiv2 Input {
+    margin-left: 0px;
+  }
+  .inputDiv2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .FormInputd {
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    margin-left: 0px;
+  }
+  .label {
+    display: block;
+    font-weight: bold;
+    color: #1890ff;
+    margin-bottom: 2px;
+  }
+}
