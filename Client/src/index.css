@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-poppins bg-gray-400;
+  margin: 0;
+  padding: 0;
+  width: 100vw; /* Set body width to cover the full viewport width */
+  height: 100vh; /* Set body height to cover the full viewport height */
+  overflow-x: hidden;
+}
+
+#root{
+  margin: 0;
+  padding: 0;
+}
