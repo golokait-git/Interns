@@ -60,7 +60,7 @@ const MainNavbar = () => {
   const menuItems2 = [
     { label: "About", href: "/about" },
 
-    { label: "School of love", href: "/academy" },
+    { label: "School of love" },
     { label: "Media", href: "#" },
   ];
 
@@ -145,13 +145,13 @@ const MainNavbar = () => {
                   hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                   md:hover:text-blue-700 md:p-0 text-white md:hover:text-blue-500
                    hover:bg-gray-700 hover:text-white md:hover:bg-transparent 
-                   text-white text-xl lg:text-lg "
+                   text-white text-xl lg:text-lg cursor-pointer"
                 >
                   {item.label}
                 </a>
                 {item.label === "School of love" && (
                   <motion.div
-                    className="z-10 hidden absolute left-0 mt-1 font-normal  divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 divide-gray-600 group-hover:block"
+                    className="z-10 hidden absolute left-0 mt-1 font-normal cursor-pointer divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 divide-gray-600 group-hover:block"
                     variants={dropdownVariants}
                     initial="hidden"
                     animate="visible"

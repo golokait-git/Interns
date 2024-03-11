@@ -45,7 +45,7 @@ const Videos = () => {
     <div className="portfolio my-10" ref={ref} style={{ width: "100%" }}>
       <div className="flex  flex-wrap w-full lg:mb-12 justify-center">
         <motion.h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">
-          Worldwide Bhagwat Yatra
+          Worldwide Bhagavata Yatra
         </motion.h1>
         <div className="h-1 w-full bg-indigo-500 rounded"></div>
       </div>

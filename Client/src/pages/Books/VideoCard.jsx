@@ -1,6 +1,7 @@
 import { useScroll } from "framer-motion";
 import React, { useState } from "react";
 import { FaAmazon } from "react-icons/fa";
+import "./AdPurchase.css";
 
 import { IMG } from "../../api";
 const VideoCard = ({ bookName, thumbnail, bookLink, bookDetail }) => {
@@ -73,7 +74,7 @@ const VideoCard = ({ bookName, thumbnail, bookLink, bookDetail }) => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p> */}
-            <p className="mb-3 font-normal text-gray-200  2xl:text-xl">
+            <p className="mb-3 font-normal text-gray-200  2xl:text-xl text-wrap overflow-scroll h-20 scrollbar-hide">
               {trimmedBookDetail}
             </p>
           </div>

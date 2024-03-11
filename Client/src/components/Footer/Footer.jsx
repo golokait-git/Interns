@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="w-full lg:w-6/12 px-4 pr-10">
               <div className="flex flex-wrap items-top ">
                 <div className="w-full lg:w-5/12 px-4 ml-auto">
-                  <span className="block text-blueGray-500 text-3xl font-semibold mb-3">
+                  <span className="block text-blueGray-500 text-3xl font-semibold mb-3 mt-5 md:mt-0 ">
                     Get In Touch
                   </span>
                   <ul className="list-unstyled">
@@ -132,6 +132,7 @@ const Footer = () => {
                   className="my-10 text-xl hover:text-white/90"
                   href="https://golokait.com/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Developed By <span className="text-white">Goloka IT</span>
                 </a>

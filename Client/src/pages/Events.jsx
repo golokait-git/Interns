@@ -84,7 +84,7 @@ const Events = () => {
               <div className="mb-5">
                 {" "}
                 <h1 className="text-black mb-4 text-3xl font-semibold">
-                  Book BrajSundar Das
+                  Book Brajsundar Das
                   <br />
                 </h1>
                 <span className="text-black mb-4">
