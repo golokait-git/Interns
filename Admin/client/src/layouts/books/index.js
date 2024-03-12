@@ -417,7 +417,7 @@ function BooksTable() {
       const response = await axios.put(`${BASEURL}/book/${selectedBook?.id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-
+      window.location.reload();
       if (response.status === 200) {
         const data = response.data;
         // console.log("Book edited successfully:", data.UpdateBook);
@@ -733,6 +733,16 @@ function BooksTable() {
                 />
               </div>
             ))}
+            {/* <Form.Item
+              label="Prebook"
+              name="preBook"
+              rules={[{ required: true, message: "Please select an option" }]}
+            >
+              <Select placeholder="Select an option">
+                <Option value="Yes">Yes</Option>
+                <Option value="No">No</Option>
+              </Select>
+            </Form.Item> */}
             <Button type="primary" onClick={handleAddItem}>
               Add
             </Button>
@@ -753,9 +763,22 @@ function BooksTable() {
             <Form.Item label="Book Detail" name="bookDetail" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="Country" name="country" rules={[{ required: true }]}>
+            {/* <Form.Item label="Country" name="country" rules={[{ required: true }]}>
               <Input />
-            </Form.Item>
+            </Form.Item> */}
+            {/* <Form.Item
+              label="Country"
+              name="country"
+              rules={[{ required: true, message: "Please select an option" }]}
+            >
+              <Select placeholder="Select an option">
+              {countries.map((country, index) => (
+                    <Option key={index} value={country}>
+                      {country}
+                    </Option>
+                  ))}
+              </Select>
+            </Form.Item> */}
             <Form.Item
               label="Prebook"
               name="preBook"
