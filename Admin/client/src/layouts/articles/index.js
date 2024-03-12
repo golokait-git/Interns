@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {
   Upload,
   Row,
@@ -28,9 +30,12 @@ const ArticleTable = () => {
   const [filteredArticle, setFilteredArticle] = useState([]);
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
+  const [state, setState] = useState("Hey");
   const [editFile, setEditFile] = useState(null);
   const [editUploadedFileName, setEditUploadedFileName] = useState(null);
   const [addUploadedFileName, setAddUploadedFileName] = useState(null);
+
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -63,6 +68,13 @@ const ArticleTable = () => {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      render: (text) => (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: text
+          }}
+        />
+      ),
     },
     {
       title: "Actions",
@@ -152,14 +164,23 @@ const ArticleTable = () => {
     }
   };
 
+  const onEditorChange = (event, editor) => {
+    const data = editor.getData();
+    setDescription(data);
+  };
+
   const handleFormSubmit = async () => {
     try {
       const values = await form.validateFields();
+      console.log("Test" + values);
+      console.log(description);
       const formData = new FormData();
+      formData.append("title",values["title"])
+      formData.append("description",description);
       formData.append("file", file);
-      for (const key in values) {
-        formData.append(key, values[key]);
-      }
+      // for (const key in values) {
+      //   formData.append(key, values[key]);
+      // }
       const response = await axios.post(`${BASEURL}/article`, formData);
       if (response.status === 200) {
         setAddModalVisible(false);
@@ -205,9 +226,36 @@ const ArticleTable = () => {
             <Form.Item label="Title" name="title" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+            {/* <Form.Item label="Description" name="description" rules={[{ required: true }]}>
               <Input />
+            </Form.Item> */}
+            <Form.Item
+              label="Description"
+              name="description"
+              rules={[{ required: true, message: "Please input your description!" }]}
+              style={{ height: "50%" }}
+            >
+              <CKEditor
+                editor={ClassicEditor}
+                data="<p>Hello from CKEditor 5!</p>"
+                onReady={(editor) => {
+                  // You can store the "editor" and use it when needed.
+                  console.log("Editor is ready to use!", editor);
+                }}
+                onChange={onEditorChange}
+                onBlur={(event, editor) => {
+                  // console.log("Blur.", editor);
+                }}
+                onFocus={(event, editor) => {
+                  // console.log("Focus.", editor);
+                }}
+              />
             </Form.Item>
+            {/* <Form.Item>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item> */}
             <Form.Item
               label="Product Thumbnail Image"
               name="thumbnail"
@@ -231,7 +279,6 @@ const ArticleTable = () => {
                 <div style={{ color: "green" }}>Uploaded File: {addUploadedFileName}</div>
               )}
             </Form.Item>
-
             <Button
               onClick={editModalVisible ? handleEditFormSubmit : handleFormSubmit}
               type="primary"
@@ -241,6 +288,48 @@ const ArticleTable = () => {
             </Button>
           </Form>
         </Modal>
+        {/*
+        
+        <Form form={form}>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+          <Form.Item
+            label="Product Thumbnail Image"
+            name="thumbnail"
+            rules={[
+              {
+                required: false,
+                message: "Please enter the product thumbnail image",
+              },
+            ]}
+          >
+            <Upload
+              onChange={editModalVisible ? fileSelectedForEdit : fileSelected}
+              showUploadList={false}
+            >
+              <Button icon={<UploadOutlined />}>Upload Image</Button>
+            </Upload>
+            {editModalVisible && editFile && (
+              <div style={{ color: "green" }}>Uploaded File: {editUploadedFileName}</div>
+            )}
+            {!editModalVisible && file && (
+              <div style={{ color: "green" }}>Uploaded File: {addUploadedFileName}</div>
+            )}
+          </Form.Item>
+
+            <Button
+              onClick={editModalVisible ? handleEditFormSubmit : handleFormSubmit}
+              type="primary"
+              htmlType="submit"
+            >
+              {editModalVisible ? "Update Article" : "Add Article"}
+            </Button>
+        </Form>
+        </Modal> */}
       </div>
     </DashboardLayout>
   );
