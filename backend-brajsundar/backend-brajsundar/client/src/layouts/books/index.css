@@ -1,0 +1,44 @@
+/* Add these styles to your existing CSS or create a new CSS file */
+
+.book-details-modal {
+  max-width: 600px;
+  margin: 50px auto;
+  z-index: 10000;
+}
+
+.book-details-container {
+  padding: 20px;
+}
+
+.book-details-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.book-details-text {
+  font-size: 16px;
+  color: #666;
+}
+
+.view-button {
+  margin-top: 10px;
+}
+
+.thumbnail-container {
+  margin-top: 20px;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Optional: Add transitions for smooth effects */
+.thumbnail-image:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
